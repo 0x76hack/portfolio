@@ -1,26 +1,97 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Dark Luxury & Editorial Modernist — Refined Palette (via SheCodes #640 Espresso & Bronze) */
+  --bg-base: #090a0c;        /* Near-black warm charcoal */
+  --bg-subtle: #0f1011;      /* Warmer, slightly browner card surface */
+  --bg-overlay: #191610;     /* Darker espresso-tinted overlay */
+  
+  --fg-primary: #f4f3ef;     /* Warm cream-white */
+  --fg-secondary: #9e9589;   /* Warm sand-gray (warmer than before) */
+  --fg-muted: #5a5249;       /* Warm stone-muted */
+  
+  --brand-accent: #c9a96e;   /* Richer, deeper champagne gold (#f3bc77 direction per SheCodes) */
+  --brand-accent-hover: #b8965a;  /* Deeper bronze-gold for hover states */
+  --brand-glow: rgba(201, 169, 110, 0.06);  /* Warmer, slightly more visible glow */
+  
+  --success: #10b981;
+  --error: #ef4444;
+
+  /* Spacing Scale - base unit 4px (Section 3.4) */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-bg-base: var(--bg-base);
+  --color-bg-subtle: var(--bg-subtle);
+  --color-bg-overlay: var(--bg-overlay);
+  
+  --color-fg-primary: var(--fg-primary);
+  --color-fg-secondary: var(--fg-secondary);
+  --color-fg-muted: var(--fg-muted);
+  
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-accent-hover: var(--brand-accent-hover);
+  --color-brand-glow: var(--brand-glow);
+  
+  --color-success: var(--success);
+  --color-error: var(--error);
+  
+  --font-display: var(--font-cormorant-garamond);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Global resets and layout */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-base);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: transparent;
+  color: var(--fg-primary);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Focus outline for accessibility (Section 3.7) */
+*:focus-visible {
+  outline: 1px solid var(--brand-accent);
+  outline-offset: 4px;
+}
+
+/* Custom Soft Scrollbars — warm gold tone */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(201, 169, 110, 0.2);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 169, 110, 0.5);
+}
+
+/* Bento card dot pattern — warmer gold */
+.bento-dot-pattern {
+  background-image: radial-gradient(rgba(201, 169, 110, 0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
 }
