@@ -1,0 +1,2120 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vaishak S</title>
+
+  <!-- Typography: Space Monkey for Display Headings & Titles, Orbitron for Technical UI --><!-- Typography: Xephyr for Condensed Cybercore Headings & Titles, Orbitron for Technical UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://www.fontspace.com/family/xephyr-font-f33321" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            carbon: '#060608',
+            obsidian: '#0D0E13',
+            recess: '#040406',
+            neon: '#FF5500',
+            silver: '#E2E5EC',
+            ash: '#7E8494'
+          },
+          fontFamily: {
+            xephyr: ['Xephyr', 'Orbitron', 'sans-serif'],
+            orbitron: ['Orbitron', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    @import url('https://db.onlinewebfonts.com/c/50e2ab9cf28e2ad06155673ff352fe90?family=Space+Monkey');
+
+    @font-face {
+      font-family: 'Xephyr';
+      src: url('https://www.fontspace.com/family/xephyr-font-f33321') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --bg-carbon: #060608;
+      --bg-obsidian: #0D0E13;
+      --bg-recess: #040406;
+      --neon-orange: #FF5500;
+      --neon-cyan-edge: #00E5FF;
+      --text-silver: #E2E5EC;
+      --text-ash: #7E8494;
+    }
+
+    * {
+      box-sizing: border-box;
+      border-radius: 0 !important;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-carbon);
+      color: var(--text-silver);
+      font-family: 'Orbitron', sans-serif;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #060608;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #FF5500;
+    }
+
+    /* ===================================================================== */
+    /* EXTREME FONT HIERARCHY: MASSIVE BOLD HEADINGS vs SMALL CLEAR CONTENT  */
+    /* ===================================================================== */
+
+    /* Hero Name Display (Modeled on Reference Graphic) */
+    .hero-cyber-title,
+    .section-mega-title,
+    .card-mega-title {
+      font-family: 'Xephyr', 'Orbitron', sans-serif !important;
+      letter-spacing: 0.08em; /* Xephyr is condensed, so slight tracking enhances readability */
+      font-weight: 900;
+      font-size: clamp(3.6rem, 10.5vw, 9.2rem);
+      line-height: 0.92;
+      text-transform: uppercase;
+      color: var(--neon-orange);
+      text-shadow: none !important;
+      position: relative;
+      user-select: none;
+    }
+
+    /* Massive Bold Section Headings */
+    .section-mega-title {
+      font-family: 'Xephyr', 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.4rem, 5.2vw, 4.6rem);
+      line-height: 1.02;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--neon-orange);
+      text-shadow: -2px 0 0 rgba(0, 229, 255, 0.35), 2px 0 0 rgba(255, 85, 0, 0.45);
+    }
+
+    /* Big Bold Interactive Card Titles */
+    .card-mega-title {
+      font-family: 'Xephyr', 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.45rem, 2.5vw, 2.25rem);
+      line-height: 1.15;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--neon-orange);
+      transition: color 0.32s ease;
+    }
+
+    /* Small, Clear, Crisp Accompanying Content */
+    .content-small-clear {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 400;
+      font-size: 0.76rem; /* 12.16px - crisp, compact, high contrast against massive titles */
+      line-height: 1.85;
+      letter-spacing: 0.03em;
+      color: var(--text-silver);
+      transition: color 0.32s ease;
+    }
+
+    .meta-micro-clear {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 600;
+      font-size: 0.68rem; /* 10.88px */
+      line-height: 1.4;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-ash);
+      transition: color 0.32s ease;
+    }
+
+    /* ===================================================================== */
+    /* DARK NEUMORPHISM + CYBERCORE VECTOR CARDS + FULL HOVER INVERSION      */
+    /* ===================================================================== */
+    .neu-vector-wrap {
+      filter:
+        drop-shadow(-6px -6px 14px rgba(255, 255, 255, 0.024))
+        drop-shadow(10px 14px 26px rgba(0, 0, 0, 0.96));
+      transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), filter 0.38s ease;
+    }
+
+    .neu-vector-wrap:hover {
+      transform: translateY(-3px);
+      filter:
+        drop-shadow(-4px -4px 14px rgba(255, 85, 0, 0.22))
+        drop-shadow(14px 18px 32px rgba(0, 0, 0, 0.98));
+    }
+
+    .cyber-card {
+      position: relative;
+      background-color: rgba(13, 14, 19, 0.92);
+      backdrop-filter: blur(6px);
+      color: var(--text-silver);
+      clip-path: polygon(
+        0 0,
+        calc(100% - 28px) 0,
+        100% 28px,
+        100% 100%,
+        28px 100%,
+        0 calc(100% - 28px)
+      );
+      box-shadow:
+        inset 1px 1px 0 rgba(255, 255, 255, 0.04),
+        inset 0 0 0 1px rgba(255, 85, 0, 0.42);
+      transition:
+        background-color 0.36s cubic-bezier(0.16, 1, 0.3, 1),
+        color 0.36s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.36s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* FULL COLOR INVERSION ON CURSOR HOVER */
+    .cyber-card:hover {
+      background-color: var(--neon-orange);
+      color: var(--bg-carbon);
+      box-shadow: inset 0 0 0 2px #060608;
+    }
+
+    .cyber-card:hover .card-mega-title,
+    .cyber-card:hover .content-small-clear,
+    .cyber-card:hover .card-subtitle-clear {
+      color: var(--bg-carbon) !important;
+    }
+
+    .cyber-card:hover .meta-micro-clear {
+      color: rgba(6, 6, 8, 0.8) !important;
+    }
+
+    .cyber-card .vector-stroke {
+      stroke: var(--neon-orange);
+      transition: stroke 0.32s ease;
+    }
+    .cyber-card:hover .vector-stroke {
+      stroke: var(--bg-carbon);
+    }
+
+    .cyber-card .vector-fill {
+      fill: var(--neon-orange);
+      transition: fill 0.32s ease;
+    }
+    .cyber-card:hover .vector-fill {
+      fill: var(--bg-carbon);
+    }
+
+    .cyber-card .vector-rule {
+      background-color: rgba(255, 85, 0, 0.35);
+      transition: background-color 0.32s ease;
+    }
+    .cyber-card:hover .vector-rule {
+      background-color: rgba(6, 6, 8, 0.4);
+    }
+
+    /* Recessed Neumorphic Terminal Drawer inside Cards */
+    .terminal-well {
+      background-color: rgba(4, 4, 6, 0.85);
+      border-left: 3px solid var(--neon-orange);
+      box-shadow:
+        inset 6px 6px 14px rgba(0, 0, 0, 0.95),
+        inset -2px -2px 6px rgba(255, 255, 255, 0.02);
+      transition: all 0.35s ease;
+    }
+
+    .cyber-card:hover .terminal-well {
+      background-color: rgba(6, 6, 8, 0.09);
+      border-left-color: var(--bg-carbon);
+      box-shadow: inset 0 0 0 1px rgba(6, 6, 8, 0.35);
+    }
+
+    /* Micro Tech Tags */
+    .cyber-chip {
+      background-color: var(--bg-recess);
+      color: var(--neon-orange);
+      border: 1px solid rgba(255, 85, 0, 0.4);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.65rem; /* 10.4px */
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.9);
+      transition: all 0.28s ease;
+    }
+
+    .cyber-card:hover .cyber-chip {
+      background-color: var(--bg-carbon);
+      color: var(--neon-orange);
+      border-color: var(--bg-carbon);
+      box-shadow: none;
+    }
+
+    /* Source Link Button inside Cards */
+    .cyber-action-link {
+      background-color: var(--bg-recess);
+      color: var(--neon-orange);
+      border: 1px solid var(--neon-orange);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+      transition: all 0.28s ease;
+    }
+
+    .cyber-card:hover .cyber-action-link {
+      background-color: var(--bg-carbon);
+      color: var(--neon-orange);
+      border-color: var(--bg-carbon);
+    }
+
+    .cyber-action-link:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.15);
+    }
+
+    /* ===================================================================== */
+    /* ONE-WAY SCROLL STORYTELLING EXPANSION FROM TITLE                      */
+    /* ===================================================================== */
+    .terminal-expand-wrapper {
+      display: grid;
+      grid-template-rows: 0fr;
+      opacity: 0;
+      margin-top: 0;
+      transition:
+        grid-template-rows 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+        margin-top 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .terminal-expand-inner {
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .cyber-card.is-expanded .terminal-expand-wrapper {
+      grid-template-rows: 1fr;
+      opacity: 1;
+      margin-top: 1.75rem;
+    }
+
+    /* Active Writing Cursor Block */
+    .writing-cursor::after {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 11px;
+      background-color: currentColor;
+      margin-left: 5px;
+      vertical-align: middle;
+      animation: cursorPulse 0.5s infinite;
+    }
+
+    @keyframes cursorPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Diagonal 45-degree Hazard Stripes Pattern (From Reference Image) */
+    .hazard-stripes-orange {
+      background: repeating-linear-gradient(
+        -45deg,
+        #FF5500,
+        #FF5500 5px,
+        transparent 5px,
+        transparent 10px
+      );
+    }
+
+    .hazard-stripes-muted {
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(226, 229, 236, 0.25),
+        rgba(226, 229, 236, 0.25) 6px,
+        transparent 6px,
+        transparent 12px
+      );
+    }
+  </style>
+</head>
+
+<body class="selection:bg-neon selection:text-carbon">
+
+  <!-- ===================================================================== -->
+  <!-- 3D CYBER VEINS, PHOTON PULSES & RESIZING VECTORS BACKGROUND CANVAS    -->
+  <!-- ===================================================================== -->
+  <canvas id="cybercore-motion-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+  <!-- ===================================================================== -->
+  <!-- HERO SECTION (100VH): EXACT REFERENCE HUD + ONLY "VAISHAK S" TEXT     -->
+  <!-- ===================================================================== -->
+  <section class="relative z-10 w-full min-h-screen flex items-center justify-center px-6 sm:px-12 lg:px-20 overflow-hidden">
+    <div class="relative w-full max-w-[1360px] py-16">
+
+      <!-- Reference Top-Left Stepped Cyber Circuit Frame & Diagonal Stripes -->
+      <svg class="w-full h-auto max-h-[84vh] pointer-events-none select-none" viewBox="0 0 1400 820" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="diagStripesOrange" width="14" height="14" patternTransform="rotate(-45 0 0)" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="7" height="14" fill="#FF5500" />
+          </pattern>
+          <pattern id="diagStripesGrey" width="18" height="18" patternTransform="rotate(-45 0 0)" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="8" height="18" fill="#E2E5EC" fill-opacity="0.22" />
+          </pattern>
+          <linearGradient id="veinPulseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#FF5500" stop-opacity="0" />
+            <stop offset="50%" stop-color="#FF5500" stop-opacity="1" />
+            <stop offset="100%" stop-color="#00E5FF" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+
+        <!-- Background Translucent Chamfered Plate (From Reference Left Side) -->
+        <polygon points="85,250 560,250 770,410 770,610 660,670 540,670 480,610 480,480 115,480 85,450" fill="#12141C" fill-opacity="0.65" />
+        <polygon points="85,510 380,510 430,560 430,660 390,690 120,690 85,655" fill="#12141C" fill-opacity="0.65" />
+
+        <!-- Top-Left Chamfered Cyber Vein Frame (Exact Reference Geometry) -->
+        <path d="M 80 42 L 105 18 L 175 18 L 195 38 L 330 38 L 350 18 L 440 18 L 465 42 L 465 110 L 435 140 L 210 140 L 80 270 Z"
+              stroke="#FF5500" stroke-width="1.6" />
+        <path d="M 80 300 L 205 175 L 470 175 L 492 197 L 492 365 L 455 402 L 175 402 L 145 372 L 110 402 L 80 372 Z"
+              stroke="#FF5500" stroke-width="1.6" />
+
+        <!-- Animated Light Pulse Travelling Through Top-Left Circuit Frame -->
+        <path d="M 80 42 L 105 18 L 175 18 L 195 38 L 330 38 L 350 18 L 440 18 L 465 42 L 465 110 L 435 140 L 210 140 L 80 270 Z"
+              stroke="#FFFFFF" stroke-width="3" stroke-dasharray="90 1400" stroke-linecap="square">
+          <animate attributeName="stroke-dashoffset" from="1490" to="0" dur="4.5s" repeatCount="indefinite" />
+        </path>
+
+        <!-- Top-Left Diagonal Striped Square -->
+        <rect x="180" y="192" width="44" height="44" fill="url(#diagStripesOrange)" />
+
+        <!-- Horizontal Segmented Telemetry Bar Above Name -->
+        <g fill="#7E8494" fill-opacity="0.65">
+          <rect x="180" y="294" width="10" height="6" />
+          <rect x="196" y="294" width="8" height="6" />
+          <rect x="215" y="295" width="54" height="4" />
+          <rect x="268" y="292" width="8" height="10" />
+          <rect x="276" y="295" width="112" height="4" />
+          <rect x="398" y="295" width="6" height="4" />
+          <rect x="414" y="294" width="10" height="6" />
+          <rect x="432" y="295" width="6" height="4" />
+          <rect x="458" y="295" width="68" height="4" />
+          <rect x="546" y="295" width="38" height="4" />
+          <rect x="602" y="295" width="18" height="4" />
+          <rect x="675" y="295" width="22" height="4" />
+          <rect x="752" y="295" width="18" height="4" />
+          <rect x="832" y="295" width="10" height="4" />
+        </g>
+
+        <!-- Center-Right Diagonal Striped Block & Red/Orange Geometric Slices -->
+        <rect x="632" y="405" width="88" height="88" fill="url(#diagStripesGrey)" />
+        <polygon points="586,408 612,408 625,424 598,424" fill="#FF5500" />
+        <polygon points="402,422 402,406 418,406" fill="#FF5500" />
+        <polygon points="256,492 276,472 276,492" fill="#FF5500" />
+
+        <!-- Three Isometric-Bevel Wireframe Boxes Below Name (From Reference) -->
+        <g stroke="#E2E5EC" stroke-opacity="0.6" stroke-width="1.3">
+          <rect x="165" y="516" width="96" height="96" fill="url(#diagStripesGrey)" stroke="none" />
+          <rect x="175" y="502" width="140" height="84" />
+          <path d="M 175 502 L 182 496 L 310 496 L 315 502" fill="#7E8494" fill-opacity="0.35" />
+
+          <rect x="326" y="502" width="140" height="84" />
+          <path d="M 326 502 L 332 496 L 460 496 L 466 502" fill="#7E8494" fill-opacity="0.35" />
+
+          <rect x="478" y="502" width="140" height="84" stroke-opacity="0.35" />
+          <rect x="478" y="502" width="76" height="76" fill="url(#diagStripesGrey)" stroke="none" opacity="0.5" />
+        </g>
+
+        <!-- Dynamic Resizing Target Square (4 Corner L-Brackets in Center) -->
+        <g id="hero-target-reticle" stroke="#FF5500" stroke-width="2.5">
+          <path d="M 636 520 V 502 H 654" />
+          <path d="M 706 502 H 724 V 520" />
+          <path d="M 636 568 V 586 H 654" />
+          <path d="M 706 586 H 724 V 568" />
+          <animateTransform attributeName="transform" type="scale" values="1;1.06;1" dur="2.8s" additive="sum" repeatCount="indefinite" />
+        </g>
+
+        <!-- Bottom-Right Stepped Cyber Circuit Corridors (From Reference) -->
+        <path d="M 680 815 L 680 572 L 702 550 L 820 550 L 840 570 L 1040 570 L 1060 550 L 1195 550 L 1222 577 L 1222 635 L 1202 655 L 872 655 L 712 815"
+              stroke="#E2E5EC" stroke-opacity="0.75" stroke-width="1.5" />
+        <path d="M 677 815 L 677 570 L 700 547 L 820 547 L 840 567 L 1040 567 L 1060 547 L 1195 547 L 1225 577 L 1225 635 L 1204 658 L 874 658 L 715 815"
+              stroke="#FF5500" stroke-opacity="0.65" stroke-width="1.2" />
+
+        <path d="M 730 815 L 882 688 L 1236 688 L 1262 714 L 1262 815"
+              stroke="#E2E5EC" stroke-opacity="0.75" stroke-width="1.5" />
+        <path d="M 734 815 L 884 691 L 1234 691 L 1259 716 L 1259 815"
+              stroke="#FF5500" stroke-opacity="0.65" stroke-width="1.2" />
+
+        <!-- Firing Light Stream Along Bottom-Right Corridor -->
+        <path d="M 680 815 L 680 572 L 702 550 L 820 550 L 840 570 L 1040 570 L 1060 550 L 1195 550 L 1222 577 L 1222 635 L 1202 655 L 872 655 L 712 815"
+              stroke="#FF5500" stroke-width="3.2" stroke-dasharray="120 1600">
+          <animate attributeName="stroke-dashoffset" from="1720" to="0" dur="3.8s" repeatCount="indefinite" />
+        </path>
+
+        <!-- Bottom-Right Dual Target Icons (Crossed Square & Neon X-Reticle) -->
+        <g transform="translate(1000, 720)">
+          <rect x="0" y="0" width="34" height="34" stroke="#7E8494" stroke-width="3" />
+          <line x1="0" y1="0" x2="34" y2="34" stroke="#7E8494" stroke-width="2.5" />
+          <line x1="34" y1="0" x2="0" y2="34" stroke="#7E8494" stroke-width="2.5" />
+          <rect x="11" y="11" width="12" height="12" fill="#060608" stroke="#FF5500" stroke-width="1.5" />
+        </g>
+
+        <g transform="translate(1058, 720)">
+          <line x1="0" y1="0" x2="36" y2="36" stroke="#FF5500" stroke-width="4" />
+          <line x1="36" y1="0" x2="0" y2="36" stroke="#FF5500" stroke-width="4" />
+          <rect x="13" y="13" width="10" height="10" fill="#060608" stroke="#FF5500" stroke-width="2" />
+          <rect x="0" y="15" width="4" height="4" fill="#FF5500" />
+          <rect x="32" y="15" width="4" height="4" fill="#FF5500" />
+        </g>
+
+        <!-- Right Vertical Dual-Rail & Cascading Micro-Rectangles Column (From Reference) -->
+        <line x1="1126" y1="280" x2="1126" y2="820" stroke="#E2E5EC" stroke-width="2.5" />
+        <line x1="1129" y1="280" x2="1129" y2="820" stroke="#FF5500" stroke-width="1.5" />
+        <line x1="1134" y1="335" x2="1134" y2="820" stroke="#FF5500" stroke-width="1.8" />
+
+        <!-- Top-Right Cascading Data Rectangles Cluster -->
+        <g stroke="#FF5500" stroke-width="1.2">
+          <rect x="1124" y="8" width="6" height="16" />
+          <rect x="1136" y="4" width="8" height="22" />
+          <rect x="1148" y="14" width="6" height="12" />
+          <rect x="1162" y="2" width="10" height="28" />
+          <rect x="1178" y="18" width="6" height="14" />
+          <rect x="1120" y="36" width="8" height="10" />
+          <rect x="1134" y="42" width="10" height="24" />
+          <rect x="1150" y="34" width="6" height="18" />
+          <rect x="1164" y="48" width="12" height="16" />
+          <rect x="1124" y="76" width="8" height="22" />
+          <rect x="1138" y="72" width="6" height="14" />
+          <rect x="1152" y="68" width="10" height="28" />
+          <rect x="1170" y="82" width="8" height="18" />
+          <rect x="1126" y="112" width="10" height="14" />
+          <rect x="1144" y="106" width="8" height="26" />
+          <rect x="1160" y="118" width="12" height="20" />
+          <rect x="1130" y="146" width="8" height="28" />
+          <rect x="1148" y="152" width="10" height="16" />
+          <rect x="1168" y="148" width="6" height="24" />
+          <rect x="1138" y="188" width="10" height="22" />
+          <rect x="1156" y="182" width="8" height="14" />
+          <rect x="1172" y="196" width="8" height="18" />
+          <rect x="1146" y="224" width="8" height="12" />
+          <rect x="1162" y="218" width="6" height="20" />
+        </g>
+
+        <!-- Accent Red/Orange Micro-Nodes -->
+        <rect x="848" y="424" width="7" height="7" fill="#FF5500" />
+        <rect x="948" y="424" width="7" height="7" fill="#FF5500" />
+        <rect x="1250" y="518" width="8" height="8" fill="#FF5500" />
+        <rect x="1250" y="610" width="8" height="8" fill="#FF5500" />
+      </svg>
+
+      <!-- ONLY TEXT ON HERO: "VAISHAK S" POSITIONED EXACTLY IN THE HUD SLOT -->
+      <div class="absolute inset-0 flex items-center pointer-events-none px-8 sm:px-20 lg:px-32">
+        <div class="mt-[-6%] sm:mt-[-4%]">
+          <h1 class="hero-cyber-title" data-cipher-title="VAISHAK S">
+            VAISHAK S
+          </h1>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- MAIN CONTENT CONTAINER (SCROLL STORYTELLING MODULES)                  -->
+  <!-- ===================================================================== -->
+  <main class="relative z-10 max-w-[1240px] mx-auto px-6 sm:px-10 pb-36 flex flex-col gap-36 sm:gap-48">
+
+    <!-- =================================================================== -->
+    <!-- SECTION 00: SOFTWARE ENGINEER PROFILE (EXPANDS & WRITES ON SCROLL)  -->
+    <!-- =================================================================== -->
+    <section id="about" class="flex flex-col gap-12">
+      <div class="neu-vector-wrap">
+        <article class="cyber-card p-8 sm:p-12" data-scroll-story>
+          <!-- Custom Chamfered Cybercore Vector Frame Lines -->
+          <svg class="absolute top-0 right-0 w-28 h-28 pointer-events-none" viewBox="0 0 112 112" fill="none">
+            <path d="M0 4 H78 L108 34 V112" class="vector-stroke" stroke-width="1.8" />
+            <rect x="48" y="12" width="22" height="3.5" class="vector-fill" />
+          </svg>
+          <svg class="absolute bottom-0 left-0 w-28 h-28 pointer-events-none" viewBox="0 0 112 112" fill="none">
+            <path d="M112 108 H34 L4 78 V0" class="vector-stroke" stroke-width="1.8" />
+            <rect x="42" y="96" width="22" height="3.5" class="vector-fill" />
+          </svg>
+
+          <!-- Big Bold Decoding Title Header -->
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="flex items-center gap-5">
+              <div class="p-3.5 border border-current text-neon card-mega-title shrink-0">
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                  <polyline points="2 17 12 22 22 17" />
+                  <polyline points="2 12 12 17 22 12" />
+                </svg>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="meta-micro-clear">AI Engineering &amp; AppSec</span>
+                <h2 class="card-mega-title" data-cipher-title="Software Engineer">
+                  Software Engineer
+                </h2>
+              </div>
+            </div>
+          </div>
+
+          <!-- Smoothly Expanding Vector Terminal Body -->
+          <div class="terminal-expand-wrapper">
+            <div class="terminal-expand-inner">
+              <div class="terminal-well p-6 sm:p-9 flex flex-col gap-6">
+                <p class="content-small-clear"
+                   data-type-text="Software Engineer with 1.5 years of professional experience in web security engineering and hands-on project experience across backend development, full-stack applications, AI-powered systems, and application security. Focused on building reliable software with Python, Java, modern web frameworks, LLM tooling, and secure engineering practices.">
+                </p>
+
+                <div class="h-[1px] w-full vector-rule"></div>
+
+                <div class="flex flex-wrap items-center gap-3">
+                  <span class="meta-micro-clear">Spoken Languages:</span>
+                  <span class="cyber-chip px-3 py-1">English</span>
+                  <span class="cyber-chip px-3 py-1">Hindi</span>
+                  <span class="cyber-chip px-3 py-1">Tamil</span>
+                  <span class="cyber-chip px-3 py-1">Malayalam</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- SECTION 01: WORK EXPERIENCE                                         -->
+    <!-- =================================================================== -->
+    <section id="experience" class="flex flex-col gap-14">
+      <!-- Massive Bold Decoding Section Heading -->
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+          <h2 class="section-mega-title" data-cipher-title="Work Experience">
+            Work Experience
+          </h2>
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-2.5 bg-neon"></div>
+            <span class="meta-micro-clear">3 ROLES</span>
+          </div>
+        </div>
+        <div class="h-[1px] w-full bg-neon/40"></div>
+      </div>
+
+      <!-- Work Experience Interactive Cards -->
+      <div class="flex flex-col gap-10">
+
+        <!-- 1. SiteLock -->
+        <div class="neu-vector-wrap">
+          <article class="cyber-card p-7 sm:p-10" data-scroll-story>
+            <svg class="absolute top-0 right-0 w-24 h-24 pointer-events-none" viewBox="0 0 96 96" fill="none">
+              <path d="M0 4 H66 L92 30 V96" class="vector-stroke" stroke-width="1.6" />
+              <rect x="42" y="10" width="18" height="3" class="vector-fill" />
+            </svg>
+            <svg class="absolute bottom-0 left-0 w-24 h-24 pointer-events-none" viewBox="0 0 96 96" fill="none">
+              <path d="M96 92 H30 L4 66 V0" class="vector-stroke" stroke-width="1.6" />
+              <rect x="36" y="83" width="18" height="3" class="vector-fill" />
+            </svg>
+
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+              <div class="flex items-start gap-5">
+                <div class="p-3.5 border border-current card-mega-title shrink-0">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L4 5.5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5.5L12 2z" />
+                    <path d="M12 7v10M8 11h8" />
+                  </svg>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <h3 class="card-mega-title" data-cipher-title="Web Security Analyst II">
+                    Web Security Analyst II
+                  </h3>
+                  <div class="flex flex-wrap items-center gap-3">
+                    <span class="cyber-chip px-3 py-1">SiteLock, a Sectigo Company</span>
+                    <span class="meta-micro-clear">Chennai, India</span>
+                  </div>
+                </div>
+              </div>
+
+              <span class="cyber-chip px-3.5 py-1.5 self-start lg:self-center shrink-0">
+                Mar 2024 to Aug 2025
+              </span>
+            </div>
+
+            <div class="terminal-expand-wrapper">
+              <div class="terminal-expand-inner">
+                <div class="terminal-well p-6 sm:p-8 flex flex-col gap-5">
+                  <p class="content-small-clear font-semibold"
+                     data-type-text="Maintained Web Application Firewall rules and automated malware-scanning pipelines to protect client websites and detect malicious activity across enterprise client deployments.">
+                  </p>
+                  <div class="h-[1px] w-full vector-rule"></div>
+                  <ul class="flex flex-col gap-3.5">
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Maintained Web Application Firewall rules and automated malware-scanning pipelines to protect client websites and detect malicious activity."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Investigated and remediated security incidents involving webshells, unauthorized backdoors, phishing artifacts, and malicious redirects across nearly 1,000 compromised websites."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Resolved more than 1,000 security tickets through incident investigation, root-cause analysis, and end-to-end remediation."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Performed static code and server-configuration reviews to identify and remediate vulnerabilities, including cross-site scripting and SQL injection."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Hardened content management system components and investigated recurring website compromise patterns."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Conducted domain and infrastructure reconnaissance using WHOIS, DNS records, and related investigation tools to identify malicious infrastructure."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Used VirusTotal and internal scanning tools to assess file and URL reputation and extract actionable indicators of compromise."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Managed abuse mitigation workflows, including blacklist removal and search-engine delisting requests, and coordinated with hosting providers and registrars."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Supported high-priority escalations and off-hour coverage, investigating alerts and escalating systemic attack patterns to detection engineering teams."></span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- 2. Virtually Testing Foundation -->
+        <div class="neu-vector-wrap">
+          <article class="cyber-card p-7 sm:p-10" data-scroll-story>
+            <svg class="absolute top-0 right-0 w-24 h-24 pointer-events-none" viewBox="0 0 96 96" fill="none">
+              <path d="M0 4 H66 L92 30 V96" class="vector-stroke" stroke-width="1.6" />
+              <rect x="42" y="10" width="18" height="3" class="vector-fill" />
+            </svg>
+            <svg class="absolute bottom-0 left-0 w-24 h-24 pointer-events-none" viewBox="0 0 96 96" fill="none">
+              <path d="M96 92 H30 L4 66 V0" class="vector-stroke" stroke-width="1.6" />
+              <rect x="36" y="83" width="18" height="3" class="vector-fill" />
+            </svg>
+
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+              <div class="flex items-start gap-5">
+                <div class="p-3.5 border border-current card-mega-title shrink-0">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="M21 21l-4.35-4.35M11 8v6M8 11h6" />
+                  </svg>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <h3 class="card-mega-title" data-cipher-title="Penetration Testing Intern">
+                    Penetration Testing Intern
+                  </h3>
+                  <div class="flex flex-wrap items-center gap-3">
+                    <span class="cyber-chip px-3 py-1">Virtually Testing Foundation</span>
+                    <span class="meta-micro-clear">Remote</span>
+                  </div>
+                </div>
+              </div>
+
+              <span class="cyber-chip px-3.5 py-1.5 self-start lg:self-center shrink-0">
+                Oct 2021 to Dec 2021
+              </span>
+            </div>
+
+            <div class="terminal-expand-wrapper">
+              <div class="terminal-expand-inner">
+                <div class="terminal-well p-6 sm:p-8 flex flex-col gap-4">
+                  <ul class="flex flex-col gap-3.5">
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Conducted application security assessments against OWASP Top 10 vulnerabilities."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Prepared technical reports documenting reproducible attack vectors and risk-prioritized remediation guidance."></span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- 3. Cisco & NASSCOM -->
+        <div class="neu-vector-wrap">
+          <article class="cyber-card p-7 sm:p-10" data-scroll-story>
+            <svg class="absolute top-0 right-0 w-24 h-24 pointer-events-none" viewBox="0 0 96 96" fill="none">
+              <path d="M0 4 H66 L92 30 V96" class="vector-stroke" stroke-width="1.6" />
+              <rect x="42" y="10" width="18" height="3" class="vector-fill" />
+            </svg>
+            <svg class="absolute bottom-0 left-0 w-24 h-24 pointer-events-none" viewBox="0 0 96 96" fill="none">
+              <path d="M96 92 H30 L4 66 V0" class="vector-stroke" stroke-width="1.6" />
+              <rect x="36" y="83" width="18" height="3" class="vector-fill" />
+            </svg>
+
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+              <div class="flex items-start gap-5">
+                <div class="p-3.5 border border-current card-mega-title shrink-0">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="6" height="6" />
+                    <rect x="16" y="3" width="6" height="6" />
+                    <rect x="9" y="15" width="6" height="6" />
+                    <path d="M8 6h8M5 9v9h4M19 9v9h-4" />
+                  </svg>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <h3 class="card-mega-title" data-cipher-title="Cyber Security Intern">
+                    Cyber Security Intern
+                  </h3>
+                  <div class="flex flex-wrap items-center gap-3">
+                    <span class="cyber-chip px-3 py-1">Cisco &amp; NASSCOM</span>
+                    <span class="meta-micro-clear">Remote</span>
+                  </div>
+                </div>
+              </div>
+
+              <span class="cyber-chip px-3.5 py-1.5 self-start lg:self-center shrink-0">
+                Apr 2021 to Jul 2021
+              </span>
+            </div>
+
+            <div class="terminal-expand-wrapper">
+              <div class="terminal-expand-inner">
+                <div class="terminal-well p-6 sm:p-8 flex flex-col gap-4">
+                  <ul class="flex flex-col gap-3.5">
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Configured secure campus network topologies in Cisco Packet Tracer."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Analyzed routing protocols, access control lists, and packet-level transmission anomalies."></span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- SECTION 02: ENGINEERED PROJECTS                                     -->
+    <!-- =================================================================== -->
+    <section id="projects" class="flex flex-col gap-14">
+      <!-- Massive Bold Decoding Section Heading -->
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+          <h2 class="section-mega-title" data-cipher-title="Engineered Projects">
+            Engineered Projects
+          </h2>
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-2.5 bg-neon"></div>
+            <span class="meta-micro-clear">5 REPOSITORIES</span>
+          </div>
+        </div>
+        <div class="h-[1px] w-full bg-neon/40"></div>
+      </div>
+
+      <!-- Projects Interactive Cards -->
+      <div class="flex flex-col gap-10">
+
+        <!-- Project 1: TrustDesk -->
+        <div class="neu-vector-wrap">
+          <article class="cyber-card p-7 sm:p-10" data-scroll-story>
+            <svg class="absolute top-0 right-0 w-24 h-24 pointer-events-none" viewBox="0 0 96 96" fill="none">
+              <path d="M0 4 H66 L92 30 V96" class="vector-stroke" stroke-width="1.6" />
+              <rect x="42" y="10" width="18" height="3" class="vector-fill" />
+            </svg>
+            <svg class="absolute bottom-0 left-0 w-24 h-24 pointer-events-none" viewBox="0 0 96 96" fill="none">
+              <path d="M96 92 H30 L4 66 V0" class="vector-stroke" stroke-width="1.6" />
+              <rect x="36" y="83" width="18" height="3" class="vector-fill" />
+            </svg>
+
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+              <div class="flex items-start gap-5">
+                <div class="p-3.5 border border-current card-mega-title shrink-0">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                    <polyline points="2 17 12 22 22 17" />
+                    <polyline points="2 12 12 17 22 12" />
+                  </svg>
+                </div>
+                <div class="flex flex-col gap-2.5">
+                  <h3 class="card-mega-title" data-cipher-title="TrustDesk: AI Support Operations Platform">
+                    TrustDesk: AI Support Operations Platform
+                  </h3>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="cyber-chip px-2.5 py-1">Python</span>
+                    <span class="cyber-chip px-2.5 py-1">FastAPI</span>
+                    <span class="cyber-chip px-2.5 py-1">PostgreSQL</span>
+                    <span class="cyber-chip px-2.5 py-1">pgvector</span>
+                    <span class="cyber-chip px-2.5 py-1">Redis</span>
+                    <span class="cyber-chip px-2.5 py-1">ARQ</span>
+                    <span class="cyber-chip px-2.5 py-1">SQLAlchemy</span>
+                    <span class="cyber-chip px-2.5 py-1">Pydantic</span>
+                    <span class="cyber-chip px-2.5 py-1">React</span>
+                    <span class="cyber-chip px-2.5 py-1">Docker</span>
+                  </div>
+                </div>
+              </div>
+
+              <a href="https://github.com/0x76hack/TrustDesk" target="_blank" rel="noopener noreferrer" class="cyber-action-link px-4 py-2.5 flex items-center gap-2.5 self-start lg:self-center shrink-0">
+                <span>View Source</span>
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" />
+                  <rect x="9" y="9" width="6" height="6" />
+                </svg>
+              </a>
+            </div>
+
+            <div class="terminal-expand-wrapper">
+              <div class="terminal-expand-inner">
+                <div class="terminal-well p-6 sm:p-8 flex flex-col gap-5">
+                  <p class="content-small-clear font-semibold"
+                     data-type-text="Built an AI-assisted support platform that ingests policy documents, triages tickets, retrieves relevant information, and generates citation-grounded draft responses.">
+                  </p>
+                  <div class="h-[1px] w-full vector-rule"></div>
+                  <ul class="flex flex-col gap-3.5">
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Implemented asynchronous backend workflows using FastAPI, REST APIs, Server-Sent Events, Redis, and ARQ."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Integrated PostgreSQL and pgvector for policy retrieval, with structured data access through SQLAlchemy and Pydantic validation."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Implemented JWT authentication, role-based access control, idempotency mechanisms, risk-based guardrails, and human approval for sensitive actions."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Added evaluation and regression tests for triage accuracy, citation grounding, prompt-injection defense, and unsafe action interception."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Recorded 69 automated pytest tests, 20 evaluation cases, and 185 ms p95 latency against a 500 ms SLA in project testing."></span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Project 2: Flash Sale Engine -->
+        <div class="neu-vector-wrap">
+          <article class="cyber-card p-7 sm:p-10" data-scroll-story>
+            <svg class="absolute top-0 right-0 w-24 h-24 pointer-events-none" viewBox="0 0 96 96" fill="none">
+              <path d="M0 4 H66 L92 30 V96" class="vector-stroke" stroke-width="1.6" />
+              <rect x="42" y="10" width="18" height="3" class="vector-fill" />
+            </svg>
+            <svg class="absolute bottom-0 left-0 w-24 h-24 pointer-events-none" viewBox="0 0 96 96" fill="none">
+              <path d="M96 92 H30 L4 66 V0" class="vector-stroke" stroke-width="1.6" />
+              <rect x="36" y="83" width="18" height="3" class="vector-fill" />
+            </svg>
+
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+              <div class="flex items-start gap-5">
+                <div class="p-3.5 border border-current card-mega-title shrink-0">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                  </svg>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <h3 class="card-mega-title" data-cipher-title="Flash Sale Engine">
+                    Flash Sale Engine
+                  </h3>
+                  <span class="meta-micro-clear">High-Concurrency Purchase API</span>
+                  <div class="flex flex-wrap gap-2 pt-1">
+                    <span class="cyber-chip px-2.5 py-1">Java</span>
+                    <span class="cyber-chip px-2.5 py-1">Spring Boot</span>
+                    <span class="cyber-chip px-2.5 py-1">PostgreSQL</span>
+                    <span class="cyber-chip px-2.5 py-1">Redis</span>
+                    <span class="cyber-chip px-2.5 py-1">Hibernate</span>
+                  </div>
+                </div>
+              </div>
+
+              <a href="https://github.com/0x76hack/Flash-sale-engine" target="_blank" rel="noopener noreferrer" class="cyber-action-link px-4 py-2.5 flex items-center gap-2.5 self-start lg:self-center shrink-0">
+                <span>View Source</span>
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" />
+                  <rect x="9" y="9" width="6" height="6" />
+                </svg>
+              </a>
+            </div>
+
+            <div class="terminal-expand-wrapper">
+              <div class="terminal-expand-inner">
+                <div class="terminal-well p-6 sm:p-8 flex flex-col gap-5">
+                  <p class="content-small-clear font-semibold"
+                     data-type-text="Engineered a high-concurrency purchase backend designed to handle sudden traffic surges while strictly eliminating race conditions and double-spending.">
+                  </p>
+                  <div class="h-[1px] w-full vector-rule"></div>
+                  <ul class="flex flex-col gap-3.5">
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Enforced pessimistic row-level database locking during checkout validation to guarantee exact single inventory decrement."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Applied durable Redis-backed idempotency tokens to handle duplicate transaction requests gracefully."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Configured purchase-window validation and distributed token-bucket rate limiting at the gateway level."></span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Project 3: Threat Intelligence Aggregator -->
+        <div class="neu-vector-wrap">
+          <article class="cyber-card p-7 sm:p-10" data-scroll-story>
+            <svg class="absolute top-0 right-0 w-24 h-24 pointer-events-none" viewBox="0 0 96 96" fill="none">
+              <path d="M0 4 H66 L92 30 V96" class="vector-stroke" stroke-width="1.6" />
+              <rect x="42" y="10" width="18" height="3" class="vector-fill" />
+            </svg>
+            <svg class="absolute bottom-0 left-0 w-24 h-24 pointer-events-none" viewBox="0 0 96 96" fill="none">
+              <path d="M96 92 H30 L4 66 V0" class="vector-stroke" stroke-width="1.6" />
+              <rect x="36" y="83" width="18" height="3" class="vector-fill" />
+            </svg>
+
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+              <div class="flex items-start gap-5">
+                <div class="p-3.5 border border-current card-mega-title shrink-0">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="9" />
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 3v4M12 17v4M3 12h4M17 12h4" />
+                  </svg>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <div class="flex flex-wrap items-center gap-3">
+                    <h3 class="card-mega-title" data-cipher-title="Threat Intelligence Aggregator">
+                      Threat Intelligence Aggregator
+                    </h3>
+                    <span class="cyber-chip px-2.5 py-1">SecOps</span>
+                  </div>
+                  <span class="meta-micro-clear">Automated OSINT &amp; IOC Ingestion Pipeline</span>
+                  <div class="flex flex-wrap gap-2 pt-1">
+                    <span class="cyber-chip px-2.5 py-1">Python</span>
+                    <span class="cyber-chip px-2.5 py-1">FastAPI</span>
+                    <span class="cyber-chip px-2.5 py-1">PostgreSQL</span>
+                    <span class="cyber-chip px-2.5 py-1">Redis</span>
+                    <span class="cyber-chip px-2.5 py-1">Celery</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="terminal-expand-wrapper">
+              <div class="terminal-expand-inner">
+                <div class="terminal-well p-6 sm:p-8 flex flex-col gap-5">
+                  <p class="content-small-clear font-semibold"
+                     data-type-text="Automated multi-source threat intelligence parsing system aggregating IP, domain, and hash indicators of compromise into normalized queryable formats.">
+                  </p>
+                  <div class="h-[1px] w-full vector-rule"></div>
+                  <ul class="flex flex-col gap-3.5">
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Automated periodic ingestion from community threat feeds and normalized diverse JSON, CSV, and XML schemas."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Leveraged Celery tasks with Redis message broker for scalable asynchronous background enrichment."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Exposed high-throughput REST API endpoints for quick indicator lookup and correlation against incident tickets."></span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Project 4: PayFlow -->
+        <div class="neu-vector-wrap">
+          <article class="cyber-card p-7 sm:p-10" data-scroll-story>
+            <svg class="absolute top-0 right-0 w-24 h-24 pointer-events-none" viewBox="0 0 96 96" fill="none">
+              <path d="M0 4 H66 L92 30 V96" class="vector-stroke" stroke-width="1.6" />
+              <rect x="42" y="10" width="18" height="3" class="vector-fill" />
+            </svg>
+            <svg class="absolute bottom-0 left-0 w-24 h-24 pointer-events-none" viewBox="0 0 96 96" fill="none">
+              <path d="M96 92 H30 L4 66 V0" class="vector-stroke" stroke-width="1.6" />
+              <rect x="36" y="83" width="18" height="3" class="vector-fill" />
+            </svg>
+
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+              <div class="flex items-start gap-5">
+                <div class="p-3.5 border border-current card-mega-title shrink-0">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="4" y="11" width="16" height="10" />
+                    <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+                  </svg>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <h3 class="card-mega-title" data-cipher-title="PayFlow: Secure Fintech Backend">
+                    PayFlow: Secure Fintech Backend
+                  </h3>
+                  <span class="meta-micro-clear">Transactional Ledger &amp; Wallet Architecture</span>
+                  <div class="flex flex-wrap gap-2 pt-1">
+                    <span class="cyber-chip px-2.5 py-1">Java</span>
+                    <span class="cyber-chip px-2.5 py-1">Spring Boot</span>
+                    <span class="cyber-chip px-2.5 py-1">Spring Security</span>
+                    <span class="cyber-chip px-2.5 py-1">PostgreSQL</span>
+                    <span class="cyber-chip px-2.5 py-1">JWT</span>
+                  </div>
+                </div>
+              </div>
+
+              <a href="https://github.com/0x76hack/payflow" target="_blank" rel="noopener noreferrer" class="cyber-action-link px-4 py-2.5 flex items-center gap-2.5 self-start lg:self-center shrink-0">
+                <span>View Source</span>
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" />
+                  <rect x="9" y="9" width="6" height="6" />
+                </svg>
+              </a>
+            </div>
+
+            <div class="terminal-expand-wrapper">
+              <div class="terminal-expand-inner">
+                <div class="terminal-well p-6 sm:p-8 flex flex-col gap-5">
+                  <p class="content-small-clear font-semibold"
+                     data-type-text="Production-grade banking and payment processing backend ensuring strict ACID guarantees across concurrent balance transfers and auditing.">
+                  </p>
+                  <div class="h-[1px] w-full vector-rule"></div>
+                  <ul class="flex flex-col gap-3.5">
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Enforced strict layered backend architecture isolating controller validation, service business logic, and transactional repositories."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Secured endpoints using stateless JWT authentication with token revocation and granular role-based authorization."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Built resilient DTO mapping contracts avoiding sensitive entity leakage."></span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Project 5: TaskMaster -->
+        <div class="neu-vector-wrap">
+          <article class="cyber-card p-7 sm:p-10" data-scroll-story>
+            <svg class="absolute top-0 right-0 w-24 h-24 pointer-events-none" viewBox="0 0 96 96" fill="none">
+              <path d="M0 4 H66 L92 30 V96" class="vector-stroke" stroke-width="1.6" />
+              <rect x="42" y="10" width="18" height="3" class="vector-fill" />
+            </svg>
+            <svg class="absolute bottom-0 left-0 w-24 h-24 pointer-events-none" viewBox="0 0 96 96" fill="none">
+              <path d="M96 92 H30 L4 66 V0" class="vector-stroke" stroke-width="1.6" />
+              <rect x="36" y="83" width="18" height="3" class="vector-fill" />
+            </svg>
+
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+              <div class="flex items-start gap-5">
+                <div class="p-3.5 border border-current card-mega-title shrink-0">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01" />
+                  </svg>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <h3 class="card-mega-title" data-cipher-title="TaskMaster">
+                    TaskMaster
+                  </h3>
+                  <span class="meta-micro-clear">Collaborative Task Management Backend</span>
+                  <div class="flex flex-wrap gap-2 pt-1">
+                    <span class="cyber-chip px-2.5 py-1">Java 17</span>
+                    <span class="cyber-chip px-2.5 py-1">Spring Boot</span>
+                    <span class="cyber-chip px-2.5 py-1">WebSocket</span>
+                    <span class="cyber-chip px-2.5 py-1">Spring Security</span>
+                    <span class="cyber-chip px-2.5 py-1">PostgreSQL</span>
+                  </div>
+                </div>
+              </div>
+
+              <a href="https://github.com/0x76hack/TaskMaster" target="_blank" rel="noopener noreferrer" class="cyber-action-link px-4 py-2.5 flex items-center gap-2.5 self-start lg:self-center shrink-0">
+                <span>View Source</span>
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" />
+                  <rect x="9" y="9" width="6" height="6" />
+                </svg>
+              </a>
+            </div>
+
+            <div class="terminal-expand-wrapper">
+              <div class="terminal-expand-inner">
+                <div class="terminal-well p-6 sm:p-8 flex flex-col gap-5">
+                  <p class="content-small-clear font-semibold"
+                     data-type-text="Real-time multi-user task orchestration backend featuring live updates, dynamic filtering, and access control.">
+                  </p>
+                  <div class="h-[1px] w-full vector-rule"></div>
+                  <ul class="flex flex-col gap-3.5">
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Implemented real-time STOMP over WebSocket notifications for instant team task updates without polling overhead."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Used JPA Specifications for flexible dynamic queries and multi-attribute filtering."></span>
+                    </li>
+                    <li class="flex items-start gap-3.5">
+                      <svg class="w-2.5 h-2.5 mt-1.5 shrink-0 vector-fill" viewBox="0 0 10 10"><rect width="10" height="10" /></svg>
+                      <span class="content-small-clear" data-type-text="Integrated Spring Security safeguards to ensure isolation between multi-tenant team boards."></span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- SECTION 03: TECHNICAL COMPETENCIES                                  -->
+    <!-- =================================================================== -->
+    <section id="skills" class="flex flex-col gap-14">
+      <!-- Massive Bold Decoding Section Heading -->
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+          <h2 class="section-mega-title" data-cipher-title="Technical Competencies">
+            Technical Competencies
+          </h2>
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-2.5 bg-neon"></div>
+            <span class="meta-micro-clear">CATEGORIZED</span>
+          </div>
+        </div>
+        <div class="h-[1px] w-full bg-neon/40"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="skills-grid">
+        <!-- Populated by script with gibberish-decoding titles & smooth expansion -->
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- SECTION 04: EDUCATION (DEDICATED SEPARATED SECTION)                 -->
+    <!-- =================================================================== -->
+    <section id="education" class="flex flex-col gap-14">
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+          <h2 class="section-mega-title" data-cipher-title="Education">
+            Education
+          </h2>
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-2.5 bg-neon"></div>
+            <span class="meta-micro-clear">ACADEMIC DEGREES</span>
+          </div>
+        </div>
+        <div class="h-[1px] w-full bg-neon/40"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- M.Tech -->
+        <div class="neu-vector-wrap">
+          <article class="cyber-card p-8 sm:p-10 h-full" data-scroll-story>
+            <svg class="absolute top-0 right-0 w-20 h-20 pointer-events-none" viewBox="0 0 80 80" fill="none">
+              <path d="M0 4 H52 L76 28 V80" class="vector-stroke" stroke-width="1.5" />
+            </svg>
+            <div class="flex flex-col gap-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="cyber-chip px-3 py-1">Jul 2025 to Jul 2027</span>
+                <span class="cyber-chip px-3 py-1">GPA: 8.25 / 10</span>
+              </div>
+              <h3 class="card-mega-title pt-2" data-cipher-title="M.Tech in Cyber Security">
+                M.Tech in Cyber Security
+              </h3>
+            </div>
+            <div class="terminal-expand-wrapper">
+              <div class="terminal-expand-inner">
+                <div class="terminal-well p-5">
+                  <p class="content-small-clear" data-type-text="International Institute of Information Technology, Sri City"></p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- B.Tech -->
+        <div class="neu-vector-wrap">
+          <article class="cyber-card p-8 sm:p-10 h-full" data-scroll-story>
+            <svg class="absolute top-0 right-0 w-20 h-20 pointer-events-none" viewBox="0 0 80 80" fill="none">
+              <path d="M0 4 H52 L76 28 V80" class="vector-stroke" stroke-width="1.5" />
+            </svg>
+            <div class="flex flex-col gap-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="cyber-chip px-3 py-1">Jun 2019 to Oct 2023</span>
+              </div>
+              <h3 class="card-mega-title pt-2" data-cipher-title="B.Tech in Electronics & Communication Engineering">
+                B.Tech in Electronics &amp; Communication Engineering
+              </h3>
+            </div>
+            <div class="terminal-expand-wrapper">
+              <div class="terminal-expand-inner">
+                <div class="terminal-well p-5">
+                  <p class="content-small-clear" data-type-text="Amrita School of Engineering, Chennai"></p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- SECTION 05: CERTIFICATIONS & ACHIEVEMENTS                           -->
+    <!-- =================================================================== -->
+    <section id="credentials" class="flex flex-col gap-14">
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+          <h2 class="section-mega-title" data-cipher-title="Certifications & Achievements">
+            Certifications &amp; Achievements
+          </h2>
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-2.5 bg-neon"></div>
+            <span class="meta-micro-clear">PUBLICATION &amp; CREDENTIALS</span>
+          </div>
+        </div>
+        <div class="h-[1px] w-full bg-neon/40"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- IEEE Publication -->
+        <div class="md:col-span-2 neu-vector-wrap">
+          <article class="cyber-card p-8 sm:p-10" data-scroll-story>
+            <svg class="absolute top-0 right-0 w-24 h-24 pointer-events-none" viewBox="0 0 96 96" fill="none">
+              <path d="M0 4 H66 L92 30 V96" class="vector-stroke" stroke-width="1.6" />
+            </svg>
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div class="flex flex-col gap-2">
+                <div class="flex flex-wrap items-center gap-3">
+                  <span class="cyber-chip px-3 py-1">IEEE Xplore Publication</span>
+                  <span class="cyber-chip px-3 py-1">Oct 2022</span>
+                </div>
+                <h3 class="card-mega-title pt-1" data-cipher-title="Hybrid Network Security Model for Small and Mid-Sized Enterprises">
+                  Hybrid Network Security Model for Small and Mid-Sized Enterprises
+                </h3>
+              </div>
+              <span class="cyber-chip px-3.5 py-1.5 self-start md:self-center shrink-0">IEEE Published</span>
+            </div>
+            <div class="terminal-expand-wrapper">
+              <div class="terminal-expand-inner">
+                <div class="terminal-well p-6">
+                  <p class="content-small-clear" data-type-text="Published peer-reviewed research on layered perimeter defenses and risk mitigations for resource-constrained organizations."></p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- CompTIA Security+ -->
+        <div class="neu-vector-wrap">
+          <article class="cyber-card p-8 sm:p-10 h-full" data-scroll-story>
+            <div class="flex items-center justify-between gap-4">
+              <h3 class="card-mega-title" data-cipher-title="CompTIA Security+">
+                CompTIA Security+
+              </h3>
+              <span class="cyber-chip px-3 py-1 shrink-0">Valid thru Jan 2027</span>
+            </div>
+            <div class="terminal-expand-wrapper">
+              <div class="terminal-expand-inner">
+                <div class="terminal-well p-5">
+                  <p class="content-small-clear" data-type-text="Certified Security Practitioner"></p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- FamPay CTF -->
+        <div class="neu-vector-wrap">
+          <article class="cyber-card p-8 sm:p-10 h-full" data-scroll-story>
+            <div class="flex items-center justify-between gap-4">
+              <h3 class="card-mega-title" data-cipher-title="FamPay CTF">
+                FamPay CTF
+              </h3>
+              <span class="cyber-chip px-3 py-1 shrink-0">Ranked 83rd</span>
+            </div>
+            <div class="terminal-expand-wrapper">
+              <div class="terminal-expand-inner">
+                <div class="terminal-well p-5">
+                  <p class="content-small-clear" data-type-text="Competitive Security Competition"></p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- SECTION 06: CONNECT WITH ME (SOCIAL LINKS ONLY)                     -->
+    <!-- =================================================================== -->
+    <section id="connect" class="flex flex-col gap-14">
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+          <h2 class="section-mega-title" data-cipher-title="Get in Touch">
+            Get in Touch
+          </h2>
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-2.5 bg-neon"></div>
+            <span class="meta-micro-clear">Direct Communication</span>
+          </div>
+        </div>
+        <div class="h-[1px] w-full bg-neon/40"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <!-- Email -->
+        <div class="neu-vector-wrap">
+          <a href="mailto:svaishak2002@gmail.com" class="cyber-card p-8 flex items-center justify-between gap-6 block">
+            <div class="flex items-center gap-5 min-w-0">
+              <div class="p-4 border border-current card-mega-title shrink-0">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 5h18v14H3V5z" />
+                  <path d="M3 7l9 6 9-6" />
+                </svg>
+              </div>
+              <div class="flex flex-col gap-1 min-w-0">
+                <span class="meta-micro-clear">Email</span>
+                <span class="card-mega-title !text-base sm:!text-lg truncate" data-cipher-title="svaishak2002@gmail.com">
+                  svaishak2002@gmail.com
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Phone -->
+        <div class="neu-vector-wrap">
+          <a href="tel:+916381987052" class="cyber-card p-8 flex items-center justify-between gap-6 block">
+            <div class="flex items-center gap-5 min-w-0">
+              <div class="p-4 border border-current card-mega-title shrink-0">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2h12v20H6V2z" />
+                  <path d="M10 18h4" />
+                </svg>
+              </div>
+              <div class="flex flex-col gap-1 min-w-0">
+                <span class="meta-micro-clear">Phone</span>
+                <span class="card-mega-title !text-base sm:!text-lg" data-cipher-title="+91 6381987052">
+                  +91 6381987052
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- LinkedIn -->
+        <div class="neu-vector-wrap">
+          <a href="https://linkedin.com/in/vaishak-s-25a29a1a2" target="_blank" rel="noopener noreferrer" class="cyber-card p-8 flex items-center justify-between gap-6 block">
+            <div class="flex items-center gap-5 min-w-0">
+              <div class="p-4 border border-current card-mega-title shrink-0">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-7.8c0-1.86-.03-4.25-2.6-4.25-2.6 0-3 2.03-3 4.12V23h-4V8z" />
+                </svg>
+              </div>
+              <div class="flex flex-col gap-1 min-w-0">
+                <span class="meta-micro-clear">Network</span>
+                <span class="card-mega-title !text-base sm:!text-lg" data-cipher-title="LinkedIn">
+                  LinkedIn
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- GitHub -->
+        <div class="neu-vector-wrap">
+          <a href="https://github.com/0x76hack" target="_blank" rel="noopener noreferrer" class="cyber-card p-8 flex items-center justify-between gap-6 block">
+            <div class="flex items-center gap-5 min-w-0">
+              <div class="p-4 border border-current card-mega-title shrink-0">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11.05 11.05 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z" />
+                </svg>
+              </div>
+              <div class="flex flex-col gap-1 min-w-0">
+                <span class="meta-micro-clear">Repositories</span>
+                <span class="card-mega-title !text-base sm:!text-lg truncate" data-cipher-title="github.com/0x76hack">
+                  github.com/0x76hack
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- SCRIPTS: 1) 3D CYBER VEINS & VECTOR CANVAS  2) GIBBERISH DECODE       -->
+  <!-- ===================================================================== -->
+  <script>
+    (function () {
+      // ===================================================================
+      // 1. PROFESSIONAL SVG LOGOS & COMPETENCY CARDS POPULATION
+      // ===================================================================
+      const skillLogos = {
+        python: '<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9 2c-5.1 0-4.8 2.2-4.8 2.2l.01 2.3h4.9v.7H5.2S2 6.8 2 11.9c0 5.1 2.8 4.9 2.8 4.9h1.7v-2.4s-.1-2.8 2.8-2.8h4.8s2.7.04 2.7-2.6V4.6S17.2 2 11.9 2zm-2.7 1.5a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8zM12.1 22c5.1 0 4.8-2.2 4.8-2.2l-.01-2.3h-4.9v-.7h6.8S22 17.2 22 12.1c0-5.1-2.8-4.9-2.8-4.9h-1.7v2.4s.1 2.8-2.8 2.8H9.9s-2.7-.04-2.7 2.6v4.4S6.8 22 12.1 22zm2.7-1.5a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8z"/></svg>',
+        java: '<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 11h1a3 3 0 0 1 0 6h-1M5 11h12v5a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4v-5zM9 3c0 2 2 2 2 4M13 3c0 2 2 2 2 4"/></svg>',
+        js: '<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3V3zm9.5 13.7c0 1.8-1.1 2.6-2.6 2.6-1.4 0-2.2-.7-2.6-1.6l1.4-.8c.3.5.6.9 1.2.9.6 0 1-.2 1-1.2v-5.4h1.6v5.5zm5.2 2.6c-1.6 0-2.7-.8-3.2-1.8l1.4-.8c.4.6.9 1.1 1.8 1.1.8 0 1.3-.4 1.3-.9 0-.6-.5-.9-1.4-1.3l-.5-.2c-1.4-.6-2.3-1.3-2.3-2.9 0-1.4 1.1-2.5 2.8-2.5 1.2 0 2.1.4 2.7 1.5l-1.4.9c-.3-.6-.7-.8-1.3-.8-.6 0-1 .4-1 .8 0 .6.4.8 1.2 1.2l.5.2c1.6.7 2.5 1.4 2.5 3 0 1.7-1.3 2.5-3.1 2.5z"/></svg>',
+        ts: '<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3V3zm10.2 9.4h-2.6V19H8.9v-6.6H6.3V11h6.9v1.4zm4.3 6.7c-1.6 0-2.7-.7-3.2-1.8l1.4-.8c.3.6.9 1.1 1.8 1.1.8 0 1.3-.4 1.3-.9 0-.6-.4-.9-1.4-1.3l-.5-.2c-1.4-.6-2.3-1.3-2.3-2.9 0-1.4 1.1-2.5 2.8-2.5 1.2 0 2.1.4 2.7 1.5l-1.4.9c-.3-.5-.7-.8-1.3-.8-.6 0-1 .4-1 .8 0 .6.4.8 1.2 1.2l.5.2c1.6.7 2.5 1.4 2.5 3 0 1.7-1.3 2.5-3.1 2.5z"/></svg>',
+        db: '<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>',
+        code: '<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
+        ai: '<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>',
+        check: '<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z"/><polyline points="9 12 11 14 15 10"/></svg>',
+        api: '<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
+        spring: '<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 1 0 9 9c0-4.97-4.03-9-9-9z"/><path d="M8 14c2-4 6-6 10-6-1 4-4 8-10 6z"/></svg>',
+        shield: '<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L4 5.5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5.5L12 2z"/></svg>',
+        radar: '<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M21 12h-3"/></svg>',
+        box: '<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>',
+        react: '<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="2"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(150 12 12)"/></svg>',
+        git: '<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><path d="M6 9v9M9 6h6"/></svg>'
+      };
+
+      const competencyCategories = [
+        {
+          title: 'Programming',
+          headerIcon: skillLogos.code,
+          skills: [
+            { name: 'Python', icon: skillLogos.python },
+            { name: 'Java', icon: skillLogos.java },
+            { name: 'JavaScript', icon: skillLogos.js },
+            { name: 'TypeScript', icon: skillLogos.ts },
+            { name: 'SQL', icon: skillLogos.db },
+            { name: 'Bash', icon: skillLogos.code }
+          ]
+        },
+        {
+          title: 'AI Engineering',
+          headerIcon: skillLogos.ai,
+          skills: [
+            { name: 'LLM APIs', icon: skillLogos.ai },
+            { name: 'LangChain', icon: skillLogos.ai },
+            { name: 'LangGraph', icon: skillLogos.git },
+            { name: 'FAISS', icon: skillLogos.db },
+            { name: 'Chroma', icon: skillLogos.db },
+            { name: 'MCP', icon: skillLogos.box },
+            { name: 'RAG', icon: skillLogos.ai },
+            { name: 'Embeddings', icon: skillLogos.ai },
+            { name: 'LoRA Tuning', icon: skillLogos.ai },
+            { name: 'Structured Outputs', icon: skillLogos.code },
+            { name: 'Agent Tooling', icon: skillLogos.api }
+          ]
+        },
+        {
+          title: 'AI Reliability',
+          headerIcon: skillLogos.check,
+          skills: [
+            { name: 'pytest', icon: skillLogos.check },
+            { name: 'Citation-Grounding', icon: skillLogos.check },
+            { name: 'Prompt-Injection Defense', icon: skillLogos.shield },
+            { name: 'Guardrails', icon: skillLogos.shield },
+            { name: 'Output Validation', icon: skillLogos.check },
+            { name: 'Evaluation Datasets', icon: skillLogos.db }
+          ]
+        },
+        {
+          title: 'Backend Architecture',
+          headerIcon: skillLogos.api,
+          skills: [
+            { name: 'FastAPI', icon: skillLogos.api },
+            { name: 'Spring Boot', icon: skillLogos.spring },
+            { name: 'Spring Security', icon: skillLogos.shield },
+            { name: 'SQLAlchemy', icon: skillLogos.db },
+            { name: 'JPA/Hibernate', icon: skillLogos.db },
+            { name: 'Pydantic', icon: skillLogos.check },
+            { name: 'REST APIs', icon: skillLogos.api },
+            { name: 'ARQ', icon: skillLogos.api },
+            { name: 'Celery', icon: skillLogos.api },
+            { name: 'WebSocket', icon: skillLogos.api },
+            { name: 'SSE', icon: skillLogos.api }
+          ]
+        },
+        {
+          title: 'Application Security',
+          headerIcon: skillLogos.shield,
+          skills: [
+            { name: 'OWASP Top 10', icon: skillLogos.shield },
+            { name: 'XSS Remediation', icon: skillLogos.shield },
+            { name: 'SQL Injection', icon: skillLogos.shield },
+            { name: 'SSRF', icon: skillLogos.shield },
+            { name: 'CSRF', icon: skillLogos.shield },
+            { name: 'JWT / RBAC', icon: skillLogos.check },
+            { name: 'WAF Tuning', icon: skillLogos.shield },
+            { name: 'Secure File Handling', icon: skillLogos.check },
+            { name: 'Malware Analysis', icon: skillLogos.radar }
+          ]
+        },
+        {
+          title: 'Databases & Systems',
+          headerIcon: skillLogos.db,
+          skills: [
+            { name: 'PostgreSQL', icon: skillLogos.db },
+            { name: 'pgvector', icon: skillLogos.db },
+            { name: 'Redis', icon: skillLogos.db },
+            { name: 'Kafka', icon: skillLogos.git },
+            { name: 'Data Modeling', icon: skillLogos.db },
+            { name: 'Transaction Management', icon: skillLogos.check },
+            { name: 'Concurrency Control', icon: skillLogos.api },
+            { name: 'Idempotency', icon: skillLogos.check }
+          ]
+        },
+        {
+          title: 'SecOps & OSINT',
+          headerIcon: skillLogos.radar,
+          skills: [
+            { name: 'VirusTotal', icon: skillLogos.shield },
+            { name: 'Maltego', icon: skillLogos.radar },
+            { name: 'Shodan', icon: skillLogos.radar },
+            { name: 'SpiderFoot', icon: skillLogos.radar },
+            { name: 'WHOIS / DNS', icon: skillLogos.radar },
+            { name: 'URLhaus', icon: skillLogos.shield },
+            { name: 'IOC Extraction', icon: skillLogos.check },
+            { name: 'Phishing Takedowns', icon: skillLogos.shield }
+          ]
+        },
+        {
+          title: 'DevOps & Infra',
+          headerIcon: skillLogos.box,
+          skills: [
+            { name: 'Docker', icon: skillLogos.box },
+            { name: 'Docker Compose', icon: skillLogos.box },
+            { name: 'Kubernetes', icon: skillLogos.box },
+            { name: 'Linux', icon: skillLogos.code },
+            { name: 'Git', icon: skillLogos.git },
+            { name: 'Maven', icon: skillLogos.box },
+            { name: 'CI/CD', icon: skillLogos.api },
+            { name: 'Prometheus', icon: skillLogos.radar },
+            { name: 'OpenTelemetry', icon: skillLogos.radar }
+          ]
+        },
+        {
+          title: 'Frontend & Testing',
+          headerIcon: skillLogos.react,
+          skills: [
+            { name: 'React', icon: skillLogos.react },
+            { name: 'HTML/CSS', icon: skillLogos.code },
+            { name: 'JUnit 5', icon: skillLogos.check },
+            { name: 'Mockito', icon: skillLogos.check },
+            { name: 'pytest', icon: skillLogos.check },
+            { name: 'Integration Testing', icon: skillLogos.check },
+            { name: 'MITRE ATT&CK', icon: skillLogos.shield },
+            { name: 'NIST CSF', icon: skillLogos.shield }
+          ]
+        }
+      ];
+
+      const skillsGrid = document.getElementById('skills-grid');
+      if (skillsGrid) {
+        skillsGrid.innerHTML = competencyCategories
+          .map(
+            (cat) => `
+          <div class="neu-vector-wrap">
+            <article class="cyber-card p-7 h-full flex flex-col justify-between" data-scroll-story>
+              <svg class="absolute top-0 right-0 w-16 h-16 pointer-events-none" viewBox="0 0 64 64" fill="none">
+                <path d="M0 3 H40 L61 24 V64" class="vector-stroke" stroke-width="1.5" />
+              </svg>
+              <div class="flex items-center gap-3.5">
+                <div class="p-2.5 border border-current card-mega-title shrink-0">
+                  ${cat.headerIcon}
+                </div>
+                <h3 class="card-mega-title !text-lg sm:!text-xl" data-cipher-title="${cat.title}">
+                  ${cat.title}
+                </h3>
+              </div>
+              <div class="terminal-expand-wrapper">
+                <div class="terminal-expand-inner">
+                  <div class="terminal-well p-4 flex flex-wrap gap-2">
+                    ${cat.skills
+                      .map(
+                        (s) => `
+                      <span class="cyber-chip px-2.5 py-1.5 flex items-center gap-2">
+                        ${s.icon}
+                        <span>${s.name}</span>
+                      </span>
+                    `
+                      )
+                      .join('')}
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        `
+          )
+          .join('');
+      }
+
+      // ===================================================================
+      // 2. GIBBERISH DECODE ANIMATION + SCROLL EXPANSION & AUTO-WRITING
+      // ===================================================================
+      const CIPHER_GLYPHS = 'X09#K7VZ2Q8W5M4N1R3Y6P$%&*+=';
+
+      function decodeTitleFromGibberish(el, durationMs = 780) {
+        if (!el || el.dataset.decoded === 'true') return;
+        el.dataset.decoded = 'true';
+
+        const targetText = el.getAttribute('data-cipher-title') || el.textContent.trim();
+        const length = targetText.length;
+        const startTime = performance.now();
+
+        function step(now) {
+          const elapsed = now - startTime;
+          const progress = Math.min(1, elapsed / durationMs);
+          const lockedChars = Math.floor(progress * length);
+
+          let output = '';
+          for (let i = 0; i < length; i++) {
+            const ch = targetText[i];
+            if (ch === ' ') {
+              output += ' ';
+            } else if (i < lockedChars) {
+              output += ch;
+            } else {
+              output += CIPHER_GLYPHS[Math.floor(Math.random() * CIPHER_GLYPHS.length)];
+            }
+          }
+
+          el.textContent = output;
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            el.textContent = targetText;
+          }
+        }
+
+        requestAnimationFrame(step);
+      }
+
+      function typeContentsSequentially(card) {
+        if (card.dataset.typedStarted === 'true') return;
+        card.dataset.typedStarted = 'true';
+
+        const textNodes = Array.from(card.querySelectorAll('[data-type-text]'));
+        let idx = 0;
+
+        function writeNext() {
+          if (idx >= textNodes.length) return;
+          const node = textNodes[idx];
+          const fullText = node.getAttribute('data-type-text') || '';
+          node.textContent = '';
+          node.classList.add('writing-cursor');
+
+          let charPos = 0;
+          const step = Math.max(2, Math.ceil(fullText.length / 38));
+
+          function tick() {
+            charPos += step;
+            if (charPos < fullText.length) {
+              node.textContent = fullText.slice(0, charPos);
+              requestAnimationFrame(tick);
+            } else {
+              node.textContent = fullText;
+              node.classList.remove('writing-cursor');
+              idx++;
+              setTimeout(writeNext, 30);
+            }
+          }
+
+          requestAnimationFrame(tick);
+        }
+
+        setTimeout(writeNext, 220);
+      }
+
+      // Initialize all [data-cipher-title] with scrambled gibberish so they decode on scroll
+      document.querySelectorAll('[data-cipher-title]').forEach((el) => {
+        const target = el.getAttribute('data-cipher-title') || '';
+        let initialScramble = '';
+        for (let i = 0; i < target.length; i++) {
+          initialScramble += target[i] === ' '
+            ? ' '
+            : CIPHER_GLYPHS[Math.floor(Math.random() * CIPHER_GLYPHS.length)];
+        }
+        el.textContent = initialScramble;
+      });
+
+      // Observe Section Headings & Standalone Titles
+      const titleObserver = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              decodeTitleFromGibberish(entry.target, 820);
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      document.querySelectorAll('[data-cipher-title]').forEach((el) => {
+        titleObserver.observe(el);
+      });
+
+      // Observe Scroll-Storytelling Cards (Decode Title -> Expand -> Auto-Write Contents)
+      const cardObserver = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const card = entry.target;
+              const titleEl = card.querySelector('[data-cipher-title]');
+              if (titleEl) decodeTitleFromGibberish(titleEl, 720);
+
+              // Smoothly expand terminal drawer after brief title decode lead-in
+              setTimeout(() => {
+                card.classList.add('is-expanded');
+                typeContentsSequentially(card);
+              }, 160);
+
+              obs.unobserve(card);
+            }
+          });
+        },
+        {
+          threshold: 0.16,
+          rootMargin: '0px 0px -6% 0px'
+        }
+      );
+
+      document.querySelectorAll('[data-scroll-story]').forEach((card) => {
+        cardObserver.observe(card);
+      });
+
+      // ===================================================================
+      // 3. 3D MOTION GRAPHICS BACKGROUND: CYBER VEINS, FIRING LIGHT PULSES,
+      //    CROSSHAIR MATRIX & DYNAMICALLY RESIZING TARGET VECTORS
+      // ===================================================================
+      const canvas = document.getElementById('cybercore-motion-canvas');
+      const ctx = canvas.getContext('2d');
+
+      let width = (canvas.width = window.innerWidth);
+      let height = (canvas.height = window.innerHeight);
+      let scrollY = window.scrollY;
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        buildCyberVeins();
+      });
+
+      window.addEventListener('scroll', () => {
+        scrollY = window.scrollY;
+      }, { passive: true });
+
+      // A. 3D Cyber Veins / Circuit Paths with 45-deg and 90-deg bends
+      let veins = [];
+      let pulses = [];
+
+      function buildCyberVeins() {
+        veins = [];
+        const count = Math.max(14, Math.floor(width / 95));
+
+        for (let i = 0; i < count; i++) {
+          const depth = 0.35 + Math.random() * 0.65; // 3D parallax depth factor
+          const points = [];
+          let cx = Math.random() * width;
+          let cy = Math.random() * height * 1.4 - height * 0.2;
+
+          points.push({ x: cx, y: cy });
+          const segments = 5 + Math.floor(Math.random() * 5);
+
+          for (let s = 0; s < segments; s++) {
+            const len = 70 + Math.random() * 160;
+            const mode = s % 2;
+            if (mode === 0) {
+              // Horizontal or Vertical 90-deg run
+              if (Math.random() > 0.45) {
+                cx += (Math.random() > 0.5 ? 1 : -1) * len;
+              } else {
+                cy += len;
+              }
+            } else {
+              // 45-degree diagonal chamfer run
+              const diag = len * 0.65;
+              cx += (Math.random() > 0.5 ? 1 : -1) * diag;
+              cy += diag;
+            }
+            points.push({ x: cx, y: cy });
+          }
+
+          // Compute segment lengths
+          let totalLength = 0;
+          const segLengths = [];
+          for (let j = 0; j < points.length - 1; j++) {
+            const dx = points[j + 1].x - points[j].x;
+            const dy = points[j + 1].y - points[j].y;
+            const d = Math.hypot(dx, dy);
+            segLengths.push(d);
+            totalLength += d;
+          }
+
+          veins.push({
+            points,
+            segLengths,
+            totalLength,
+            depth,
+            isAccent: i % 3 === 0
+          });
+        }
+      }
+
+      buildCyberVeins();
+
+      // Spawn small crisp point/dot of light locked onto visible circuit veins
+      function spawnPulse() {
+        if (veins.length === 0) return;
+        const veinIdx = Math.floor(Math.random() * veins.length);
+        const vein = veins[veinIdx];
+        pulses.push({
+          vein,
+          dist: Math.random() * vein.totalLength * 0.25,
+          speed: (1.6 + Math.random() * 2.2) * vein.depth
+        });
+      }
+
+      for (let i = 0; i < 14; i++) spawnPulse();
+
+      // B. Dynamically Moving & Resizing Vector Shapes (Target Squares, Triangles, X-Reticles)
+      const dynamicVectors = Array.from({ length: 12 }, (_, idx) => {
+        const types = ['targetSquare', 'triangle', 'xReticle', 'crossedBox'];
+        return {
+          type: types[idx % types.length],
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.45,
+          vy: (Math.random() - 0.5) * 0.45,
+          baseSize: 18 + Math.random() * 26,
+          scalePhase: Math.random() * Math.PI * 2,
+          scaleSpeed: 0.02 + Math.random() * 0.025,
+          depth: 0.4 + Math.random() * 0.6,
+          angle: 0,
+          rotSpeed: (Math.random() - 0.5) * 0.01
+        };
+      });
+
+      function getPointOnVein(vein, dist, yOffset) {
+        let rem = dist;
+        for (let i = 0; i < vein.segLengths.length; i++) {
+          const segLen = vein.segLengths[i];
+          if (rem <= segLen) {
+            const t = segLen === 0 ? 0 : rem / segLen;
+            return {
+              x: vein.points[i].x + (vein.points[i + 1].x - vein.points[i].x) * t,
+              y: vein.points[i].y + (vein.points[i + 1].y - vein.points[i].y) * t + yOffset
+            };
+          }
+          rem -= segLen;
+        }
+        const last = vein.points[vein.points.length - 1];
+        return { x: last.x, y: last.y + yOffset };
+      }
+
+      function drawSplitCrosshair(x, y, size) {
+        const gap = 3;
+        ctx.beginPath();
+        // Top-left L
+        ctx.moveTo(x - size, y - gap);
+        ctx.lineTo(x - gap, y - gap);
+        ctx.lineTo(x - gap, y - size);
+        // Top-right L
+        ctx.moveTo(x + size, y - gap);
+        ctx.lineTo(x + gap, y - gap);
+        ctx.lineTo(x + gap, y - size);
+        // Bottom-left L
+        ctx.moveTo(x - size, y + gap);
+        ctx.lineTo(x - gap, y + gap);
+        ctx.lineTo(x - gap, y + size);
+        // Bottom-right L
+        ctx.moveTo(x + size, y + gap);
+        ctx.lineTo(x + gap, y + gap);
+        ctx.lineTo(x + gap, y + size);
+        ctx.stroke();
+      }
+
+      function renderCanvas() {
+        ctx.clearRect(0, 0, width, height);
+
+        // 1. Draw Reference-Style Split Crosshair & Micro-Square Grid
+        const gridStep = 110;
+        const gridOffsetY = -(scrollY * 0.15) % gridStep;
+        ctx.strokeStyle = 'rgba(126, 132, 148, 0.18)';
+        ctx.lineWidth = 1;
+
+        for (let gx = 55; gx < width; gx += gridStep) {
+          for (let gy = gridOffsetY; gy < height + gridStep; gy += gridStep) {
+            drawSplitCrosshair(gx, gy, 7);
+            // Tiny micro-square offset between crosshairs (as in reference image)
+            ctx.strokeRect(gx + gridStep * 0.5 - 2, gy + gridStep * 0.5 - 2, 4, 4);
+          }
+        }
+
+        // 2. Draw 3D Cyber Veins / Circuit Traces
+        veins.forEach((vein) => {
+          const yOffset = -((scrollY * 0.25 * vein.depth) % (height * 0.8));
+          ctx.beginPath();
+          vein.points.forEach((pt, idx) => {
+            if (idx === 0) ctx.moveTo(pt.x, pt.y + yOffset);
+            else ctx.lineTo(pt.x, pt.y + yOffset);
+          });
+          ctx.strokeStyle = vein.isAccent
+            ? `rgba(255, 85, 0, ${0.18 * vein.depth})`
+            : `rgba(226, 229, 236, ${0.1 * vein.depth})`;
+          ctx.lineWidth = vein.isAccent ? 1.4 : 1;
+          ctx.stroke();
+
+          // Draw circuit node terminals at vertices
+          vein.points.forEach((pt, idx) => {
+            if (idx === 0 || idx === vein.points.length - 1) {
+              ctx.fillStyle = vein.isAccent ? 'rgba(255, 85, 0, 0.45)' : 'rgba(126, 132, 148, 0.3)';
+              ctx.fillRect(pt.x - 2.5, pt.y + yOffset - 2.5, 5, 5);
+            }
+          });
+        });
+
+        // 3. Update & Draw Small 2px Point/Dot of Light Locked Strictly on Visible Circuit Vein Lines
+        for (let i = pulses.length - 1; i >= 0; i--) {
+          const p = pulses[i];
+          p.dist += p.speed;
+
+          if (p.dist > p.vein.totalLength) {
+            pulses.splice(i, 1);
+            spawnPulse();
+            continue;
+          }
+
+          const yOffset = -((scrollY * 0.25 * p.vein.depth) % (height * 0.8));
+          const dot = getPointOnVein(p.vein, p.dist, yOffset);
+
+          ctx.save();
+          ctx.shadowColor = '#FF5500';
+          ctx.shadowBlur = 8;
+          ctx.fillStyle = '#FF5500';
+          ctx.fillRect(dot.x - 1, dot.y - 1, 2, 2);
+          ctx.restore();
+        }
+
+        // 4. Draw Dynamically Moving & Resizing Cybercore Vectors with Glowing Inner Light
+        dynamicVectors.forEach((vec) => {
+          vec.x += vec.vx;
+          vec.y += vec.vy;
+          vec.scalePhase += vec.scaleSpeed;
+          vec.angle += vec.rotSpeed;
+
+          if (vec.x < -60) vec.x = width + 60;
+          if (vec.x > width + 60) vec.x = -60;
+          if (vec.y < -60) vec.y = height + 60;
+          if (vec.y > height + 60) vec.y = -60;
+
+          const pulseFactor = (Math.sin(vec.scalePhase) + 1) * 0.5;
+          const scale = 0.75 + Math.sin(vec.scalePhase) * 0.35;
+          const s = vec.baseSize * scale;
+          const vy = (vec.y - scrollY * 0.18 * vec.depth + height * 10) % height;
+
+          ctx.save();
+          ctx.translate(vec.x, vy);
+          ctx.shadowColor = 'rgba(255, 85, 0, 0.65)';
+          ctx.shadowBlur = 6 + pulseFactor * 8;
+
+          if (vec.type === 'targetSquare') {
+            // Glowing inner vector fill + 4-corner L-bracket target square
+            ctx.fillStyle = `rgba(255, 85, 0, ${0.04 + pulseFactor * 0.08})`;
+            ctx.fillRect(-s * 0.75, -s * 0.75, s * 1.5, s * 1.5);
+
+            const corner = s * 0.36;
+            ctx.strokeStyle = 'rgba(255, 85, 0, 0.65)';
+            ctx.lineWidth = 1.8;
+            ctx.beginPath();
+            ctx.moveTo(-s, -s + corner); ctx.lineTo(-s, -s); ctx.lineTo(-s + corner, -s);
+            ctx.moveTo(s - corner, -s); ctx.lineTo(s, -s); ctx.lineTo(s, -s + corner);
+            ctx.moveTo(-s, s - corner); ctx.lineTo(-s, s); ctx.lineTo(-s + corner, s);
+            ctx.moveTo(s - corner, s); ctx.lineTo(s, s); ctx.lineTo(s, s - corner);
+            ctx.stroke();
+
+            // Center lock-on illuminated core
+            ctx.fillStyle = 'rgba(255, 130, 50, 0.9)';
+            ctx.fillRect(-2, -2, 4, 4);
+          } else if (vec.type === 'triangle') {
+            ctx.rotate(vec.angle);
+            ctx.beginPath();
+            ctx.moveTo(0, -s);
+            ctx.lineTo(s * 0.866, s * 0.5);
+            ctx.lineTo(-s * 0.866, s * 0.5);
+            ctx.closePath();
+            ctx.fillStyle = `rgba(255, 85, 0, ${0.04 + pulseFactor * 0.09})`;
+            ctx.fill();
+            ctx.strokeStyle = 'rgba(255, 85, 0, 0.55)';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+          } else if (vec.type === 'xReticle') {
+            ctx.strokeStyle = 'rgba(255, 85, 0, 0.6)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(-s * 0.6, -s * 0.6); ctx.lineTo(s * 0.6, s * 0.6);
+            ctx.moveTo(s * 0.6, -s * 0.6); ctx.lineTo(-s * 0.6, s * 0.6);
+            ctx.stroke();
+            ctx.fillStyle = `rgba(255, 85, 0, ${0.15 + pulseFactor * 0.25})`;
+            ctx.fillRect(-4, -4, 8, 8);
+            ctx.strokeRect(-4, -4, 8, 8);
+          } else if (vec.type === 'crossedBox') {
+            ctx.fillStyle = `rgba(255, 85, 0, ${0.03 + pulseFactor * 0.06})`;
+            ctx.fillRect(-s * 0.6, -s * 0.6, s * 1.2, s * 1.2);
+            ctx.strokeStyle = 'rgba(226, 229, 236, 0.3)';
+            ctx.lineWidth = 1.4;
+            ctx.strokeRect(-s * 0.6, -s * 0.6, s * 1.2, s * 1.2);
+            ctx.beginPath();
+            ctx.moveTo(-s * 0.6, -s * 0.6); ctx.lineTo(s * 0.6, s * 0.6);
+            ctx.moveTo(s * 0.6, -s * 0.6); ctx.lineTo(-s * 0.6, s * 0.6);
+            ctx.stroke();
+          }
+
+          ctx.restore();
+        });
+
+        requestAnimationFrame(renderCanvas);
+      }
+
+      requestAnimationFrame(renderCanvas);
+    })();
+  </script>
+</body>
+</html>
